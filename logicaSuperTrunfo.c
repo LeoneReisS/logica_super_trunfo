@@ -96,22 +96,17 @@
             printf("PIB per capita: R$ %.2f \n", PIB_per_capita2); // saída do PIB per capita da Carta 2
             printf("Super Poder: %.2f \n\n", SuperPoder2); // saída do Super Poder da Carta 2
 
-        printf("Comparação das Cartas (1 para verdadeiro - Carta 1 vence e 0 para falso - Carta 2 vence):\n\n"); // indentificando comparação das cartas
-            resultado_populacao = populacao1 > populacao2; // comparação da população
-            resultado_area = area1 > area2; // comparação da área
-            resultado_PIB = PIB1 > PIB2; // comparação do PIB
-            resultado_pontos_tur = pontos_tur1 > pontos_tur2; // comparação de pontos turísticos
-            resultado_densidade_pop = densidade_pop1 < densidade_pop2; // comparação da densidade populacional
-            resultado_PIB_per_capita = PIB_per_capita1 > PIB_per_capita2; // comparação do PIB per capita
-            resultado_SuperPoder = SuperPoder1 > SuperPoder2; // comparação do Super Poder
+        printf("Comparação das cartas \n");
+        printf("Atributo: PIB per capita \n\n");
 
-        printf("População: %d \n", resultado_populacao); // saída do resultado da comparação da população
-        printf("Área: %d \n", resultado_area); // saída do resultado da comparação da área
-        printf("PIB: %d \n", resultado_PIB); // saída do resultado da comparação do PIB
-        printf("Pontos turísticos: %d \n", resultado_pontos_tur); //saída do resultado da comparação de pontos turísticos
-        printf("Densidade populacional: %d \n", resultado_densidade_pop); // saída do resultado da densidade populacional
-        printf("PIB per capita: %d \n", resultado_PIB_per_capita); // saída do resultado do PIB per capita
-        printf("Super Poder: %d \n", resultado_SuperPoder); // saída do resultado do Super Poder
+            printf("Carta 1 %s: %.2f \n", nome1, PIB_per_capita1);
+            printf("Carta 2 %s: %.2f \n", nome2, PIB_per_capita2);
+
+            if ( PIB_per_capita1 > PIB_per_capita2) {
+                printf("Resultado: Carta 1 %s Venceu!", nome1);
+            } else {
+                printf("Resultado: Carta 2 %s Venceu!", nome2);
+            }
 
         return 0;
     }
