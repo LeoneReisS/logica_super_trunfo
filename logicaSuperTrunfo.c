@@ -96,17 +96,17 @@
             printf("PIB per capita: R$ %.2f \n", PIB_per_capita2); // saída do PIB per capita da Carta 2
             printf("Super Poder: %.2f \n\n", SuperPoder2); // saída do Super Poder da Carta 2
 
-        printf("Comparação das cartas \n");
-        printf("Atributo: PIB per capita \n\n");
+        printf("Comparação das cartas \n"); // identificando a comparação
+        printf("Atributo: PIB per capita \n\n"); // escolha do atributo (PIB per capita)
 
-            printf("Carta 1 %s: %.2f \n", nome1, PIB_per_capita1);
-            printf("Carta 2 %s: %.2f \n", nome2, PIB_per_capita2);
+            printf("Carta 1 %s: %.2f \n", nome1, PIB_per_capita1); // saída do nome da cidade 1 e do valor do atributo para comparação
+            printf("Carta 2 %s: %.2f \n", nome2, PIB_per_capita2); // saída do nome da cidade 2 e do valor do atributo para comparação
 
             if ( PIB_per_capita1 > PIB_per_capita2) {
                 printf("Resultado: Carta 1 %s Venceu!", nome1);
             } else {
                 printf("Resultado: Carta 2 %s Venceu!", nome2);
-            }
+            } // resultado da comparação
 
         return 0;
     }
