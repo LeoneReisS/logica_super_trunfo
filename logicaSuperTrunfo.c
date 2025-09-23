@@ -9,8 +9,7 @@
         float densidade_pop1, densidade_pop2, PIB_per_capita1, PIB_per_capita2; // variáveis de densidade populacional e PIB per capita
         char nome1[20], nome2[20], codigo1[3], codigo2[3]; // variáveis do nome das cidades e do código das cartas
         float SuperPoder1, SuperPoder2; // variáveis do Super Poder
-        int resultado_populacao, resultado_area, resultado_PIB, resultado_pontos_tur, resultado_densidade_pop, resultado_PIB_per_capita, resultado_SuperPoder; // variáveis do resultado de comparação
-        
+        int escolha_jogador; // variável de escolha do jogador   
 
         printf("Dados da Carta 1: \n"); //identificando a Carta 1
 
@@ -96,17 +95,84 @@
             printf("PIB per capita: R$ %.2f \n", PIB_per_capita2); // saída do PIB per capita da Carta 2
             printf("Super Poder: %.2f \n\n", SuperPoder2); // saída do Super Poder da Carta 2
 
-        printf("Comparação das cartas \n"); // identificando a comparação
-        printf("Atributo: PIB per capita \n\n"); // escolha do atributo (PIB per capita)
+            // início do menu de interação
 
-            printf("Carta 1 %s: %.2f \n", nome1, PIB_per_capita1); // saída do nome da cidade 1 e do valor do atributo para comparação
-            printf("Carta 2 %s: %.2f \n", nome2, PIB_per_capita2); // saída do nome da cidade 2 e do valor do atributo para comparação
+        printf("*** Escolha o atributo para comparar *** \n"); // menu de comparação
+        printf("1- População \n"); // opção do atributo população
+        printf("2- Área \n"); // opção do atributo área
+        printf("3- PIB \n"); // opção do atributo PIB
+        printf("4- Pontos turísticos \n"); // opção do atributo ponto turístico
+        printf("5- Densidade populacional \n\n"); // opção do atributo densidade populacional
+            scanf("%i", &escolha_jogador); // entrada da escolha da opção
 
-            if ( PIB_per_capita1 > PIB_per_capita2) {
-                printf("Resultado: Carta 1 %s Venceu!", nome1);
-            } else {
-                printf("Resultado: Carta 2 %s Venceu!", nome2);
-            } // resultado da comparação
+            // lógica de comparação (escolha do atributo)
+
+        switch (escolha_jogador)
+        {
+        case 1: // escolha do atributo população
+            printf("Carta 1 %s - População: %lu \n", nome1, populacao1); // saída do nome e do atributo
+            printf("Carta 2 %s - População: %lu \n\n", nome2, populacao2); // saída do nome e do atributo
+            break;
+
+        case 2: // escolha do atributo área
+            printf("Carta 1 %s - Área: %.2fkm² \n", nome1, area1); // saída do nome e do atributo
+            printf("Carta 2 %s - Área: %.2fkm² \n\n", nome2, area2); // saída do nome e do atributo
+            break;
+
+        case 3: // escolha do atributo PIB
+            printf("Carta 1 %s - PIB: %.2f \n", nome1, PIB1); // saída do nome e do atributo
+            printf("Carta 2 %s - PIB: %.2f \n\n", nome2, PIB2); // saída do nome e do atributo
+            break;
+
+        case 4: // escolha do atributo ponto turístico
+            printf("Carta 1 %s - Pontos turísticos: %d \n", nome1, pontos_tur1); // saída do nome e do atributo
+            printf("Carta 2 %s - Pontos turísticos: %d \n\n", nome2, pontos_tur2); // saída do nome e do atributo
+            break;
+
+        case 5: // escolha do atributo densidade populacional
+            printf("Carta 1 %s - Densidade populacional: %.2f \n", nome1, densidade_pop1); // saída do nome e do atributo
+            printf("Carta 2 %s - Densidade populacional: %.2f \n\n", nome2, densidade_pop2); // saída do nome e do atributo
+            break;
+        
+        default: // erro de inserção de opção inválida
+            printf("### OPÇÃO INVÁLIDA ### \n");
+            break;
+        }
+
+                // condições de comparação
+        if(escolha_jogador >= 1 && escolha_jogador <= 5){
+                // condições para carta 1 vencer
+            if(
+               (escolha_jogador == 1 && (populacao1 > populacao2)) ||
+               (escolha_jogador == 2 && (area1 > area2)) ||
+               (escolha_jogador == 3 && (PIB1 > PIB2)) ||
+               (escolha_jogador == 4 && (pontos_tur1 > pontos_tur2)) ||
+               (escolha_jogador == 5 && (densidade_pop1 < densidade_pop2))
+            ) {
+                printf("*** Carta 1 %s Venceu! ***", nome1);
+              }
+               
+               // condições para carta 2 vencer
+            else if (
+                (escolha_jogador == 1 && (populacao1 < populacao2)) ||
+                (escolha_jogador == 2 && (area1 < area2)) ||
+                (escolha_jogador == 3 && (PIB1 < PIB2)) ||
+                (escolha_jogador == 4 && (pontos_tur1 < pontos_tur2)) ||
+                (escolha_jogador == 5 && (densidade_pop1 > densidade_pop2))
+            ) {
+                printf ("*** Carta 2 %s Venceu! ***", nome2);
+            }
+
+                // condição de empate
+            else {
+                printf("*** Empate! ***");
+            }
+        } else {
+            printf("###      ERRO      ###");
+        }
+
+
+        
 
         return 0;
     }
