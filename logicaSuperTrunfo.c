@@ -11,7 +11,8 @@
         float SuperPoder1, SuperPoder2; // variáveis do Super Poder
         int escolha1_jogador, escolha2_jogador; // variável das escolhas do jogador
         float carta1_atributo1, carta2_atributo1, carta1_atributo2, carta2_atributo2, carta1_resultado, carta2_resultado; // variável do valor da soma dos atributos escolhidos para comparação
-        int resultado_soma_atributos; // variável do resultado da soma
+        int resultado1, resultado2; // variáveis dos resultados
+    
 
         /*
         Valores já pré-definidos para facilitação da execução do desafio, visto que ainda não foi ensinado como armazenar variáveis em arquivos para uso posterior.
@@ -423,8 +424,8 @@
 
             }
 
-            if(escolha2_jogador >= 1 && escolha2_jogador <= 5){
-            
+            if(escolha2_jogador >= 1 && escolha2_jogador <= 5){ // Parâmetro para opções válidas
+            // Saída da escolha do primeiro atributo
             if (escolha1_jogador == 1){
             printf("Primeiro atributo escolhido: População \n\n");
             }
@@ -450,10 +451,10 @@
                 else if (escolha1_jogador == 2) {
                 printf("%.2f km² \n", carta1_atributo1);
                 }
-                else if (escolha1_jogador == 3 || escolha1_jogador == 5){
+                else if (escolha1_jogador == 3 || escolha1_jogador == 6){
                 printf("R$ %.2f \n", carta1_atributo1);
                 }
-                else{
+                else {
                 printf("%.2f habitante/km² \n", carta1_atributo1);
                 }
             printf("Carta 2 - %s : ", nome2);
@@ -463,21 +464,41 @@
                 else if (escolha1_jogador == 2) {
                 printf("%.2f km² \n\n", carta2_atributo1);
                 }
-                else if (escolha1_jogador == 3 || escolha1_jogador == 5){
+                else if (escolha1_jogador == 3 || escolha1_jogador == 6){
                 printf("R$ %.2f \n\n", carta2_atributo1);
                 }
-                else{
+                else {
                 printf("%.2f habitante/km² \n\n", carta2_atributo1);
                 }
+
+            // Resultado do primeiro atributo escolhido           
             
-            
-                if(carta1_atributo1 > carta2_atributo1){
-                    printf("Carta 1 - %s Venceu! \n\n", nome1);
-                } else if (carta1_atributo1 < carta2_atributo1) {
-                    printf("Carta 2 - %s Venceu! \n\n", nome2);
+                if (carta1_atributo1 != densidade_pop1) {
+                    if (carta1_atributo1 > carta2_atributo1) {
+                        printf("Carta 1 - %s Venceu! \n\n", nome1);
+                        resultado1 = 1;
+                        } else if (carta1_atributo1 < carta2_atributo1) {
+                        printf("Carta 2 - %s Venceu! \n\n", nome2);
+                        resultado1 = 2;
+                        } else {
+                        printf("Empate! \n\n");
+                        resultado1 = 0;
+                    }
                 } else {
-                    printf("Empate! \n\n");
+                    if (carta1_atributo1 < carta2_atributo1) {
+                        printf("Carta 1 - %s Venceu! \n\n", nome1);
+                        resultado1 = 1;
+                        } else if (carta1_atributo1 > carta2_atributo1) {
+                        printf("Carta 2 - %s Venceu! \n\n", nome2);
+                        resultado1 = 2;
+                        } else {
+                        printf("Empate! \n\n");
+                        resultado1 = 0;
+                    }
+
                 }
+
+                // saída da escolha do segundo atributo
             
                 if (escolha2_jogador == 1){
                     if (escolha1_jogador == 1) {
@@ -506,9 +527,9 @@
 
                 else if (escolha2_jogador == 4){
                     if (escolha1_jogador < 4){
-                        printf("Segundo atributo escolhido: Pontos turísticos \n\n");
-                    } else {
                         printf("Segundo atributo escolhido: Densidade populacional \n\n");
+                    } else {
+                        printf("Segundo atributo escolhido: Pontos turísticos \n\n");
                     }
                 }
 
@@ -520,6 +541,7 @@
                     }
                 }
 
+            // resultado do do segundo atributo escolhido
             
             printf("Carta 1 - %s : ", nome1);
                 if (carta1_atributo2 == populacao1 || carta1_atributo2 == pontos_tur1) {
@@ -548,21 +570,48 @@
                 printf("%.2f habitante/km² \n\n", carta2_atributo2);
                 }
         
-                if(carta1_atributo2 > carta2_atributo2){
-                    printf("Carta 1 - %s Venceu! \n\n", nome1);
-                } else if (carta1_atributo2 < carta2_atributo2) {
-                    printf("Carta 2 - %s Venceu! \n\n", nome2);
+                if (carta1_atributo2 != densidade_pop1) {
+                    if (carta1_atributo2 > carta2_atributo2) {
+                        printf("Carta 1 - %s Venceu! \n\n", nome1);
+                        resultado2 = 1;
+                        } else if (carta1_atributo2 < carta2_atributo2) {
+                        printf("Carta 2 - %s Venceu! \n\n", nome2);
+                        resultado2 = 2;
+                        } else {
+                        printf("Empate! \n\n");
+                        resultado2 = 0;
+                    }
                 } else {
-                    printf("Empate! \n\n");
+                    if (carta1_atributo2 < carta2_atributo2) {
+                        printf("Carta 1 - %s Venceu! \n\n", nome1);
+                        resultado2 = 1;
+                        } else if (carta1_atributo2 > carta2_atributo2) {
+                        printf("Carta 2 - %s Venceu! \n\n", nome2);
+                        resultado2 = 2;
+                        } else {
+                        printf("Empate! \n\n");
+                        resultado2 = 0;
+                    }
+
                 }
 
-            } else {
+            } else { // mensagem de erro em caso de opção seja inválida na escolha do segundo atributo
             printf("###      ERRO      ###");
             }
-        } else {
+        } else { // mensagem de erro em caso de opção inválida na escolha do primeiro atributo
             printf("###      ERRO      ###");
         }
-        
+        printf("Resultado Geral: \n");
+
+            if ( (resultado1 == 1 && resultado2 == 1 || resultado2 == 0) || (resultado1 == 0 && resultado2 == 1) ) {
+                printf("Carta 1 - %s Venceu a rodada!", nome1);
+            }
+            else if ( (resultado1 == 2 && resultado2 == 2 || resultado2 == 0) || (resultado1 == 0 && resultado2 == 2) ) {
+                printf("Carta 2 - %s Venceu a rodada!", nome2);
+            }
+            else if ( (resultado1 == 0 && resultado2 == 0) || (resultado1 == 1 && resultado2 == 2) || (resultado1 == 2 && resultado2 == 1) ) {
+                printf("Empate na rodada!");
+            }
 
         return 0;
     }
